@@ -5,6 +5,7 @@ import 'package:grocery_app/core/models/app_images.dart';
 import 'package:grocery_app/core/models/app_text_style.dart';
 
 import '../widgets/carrosel.dart';
+import '../widgets/grid_horizontal_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -32,6 +33,11 @@ class HomeScreen extends StatelessWidget {
          children: [
            SizedBox(height: 20.h,),
            Carousel(),
+           SizedBox(height: 17.h,),
+           SizedBox(
+             height: 100.h,
+               child: GridHorizontalView()),
+
 
 
         ]
