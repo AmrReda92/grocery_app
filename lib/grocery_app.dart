@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:grocery_app/core/routes/app_routes.dart';
 import 'package:grocery_app/core/routes/routes.dart';
 
@@ -7,13 +8,21 @@ class GroceryApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white
+    return ScreenUtilInit(
+      designSize: const Size(430, 869),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+        theme: ThemeData(
+          appBarTheme: AppBarThemeData(
+            backgroundColor: Colors.white
+          ),
+          scaffoldBackgroundColor: Colors.white
+        ),
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: AppRoutes.onGenerateRoute ,
+        initialRoute: Routes.homeScreen,
       ),
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: AppRoutes.onGenerateRoute ,
-      initialRoute: Routes.splashScreen,
     );
   }
 }
