@@ -1,16 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:grocery_app/core/models/app_colors.dart';
 import 'package:grocery_app/core/models/app_images.dart';
 import 'package:grocery_app/core/models/app_text_style.dart';
+import 'package:grocery_app/features/home/data/model/category_model.dart';
 import 'package:grocery_app/features/home/widgets/list_horizontal_view.dart';
 import 'package:grocery_app/features/home/widgets/tape_shopping_list.dart';
 import '../widgets/carrosel.dart';
 import '../widgets/grid_horizontal_view.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final List<ProductModel> basket =[];
+
+  void addToCart ( ProductModel product){
+    setState(() {
+      basket.add(product);
+    });
+  }
+
+  void removeFromCart (ProductModel product){
+    setState(() {
+      basket.remove(product);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +72,13 @@ class HomeScreen extends StatelessWidget {
              ),
              SizedBox(
                height: 255.h,
-               child: ListHorizontalView() ,
+               child: ListHorizontalView(
+                 onAdd: addToCart,
+                 onRemove: removeFromCart,
+                 basket: basket,
+               ) ,
              ),
-             TapeShoppingList(),
+             TapeShoppingList(basket: basket,),
 
           ]
          ),

@@ -8,8 +8,10 @@ import '../../../core/models/app_images.dart';
 import '../../../core/models/app_text_style.dart';
 
 class ItemListProduct extends StatelessWidget {
+  final  Function(ProductModel) onTap ;
   final ProductModel productModel ;
-  const ItemListProduct({super.key, required this.productModel});
+  final bool isSelected ;
+  const ItemListProduct({super.key, required this.productModel, required this.onTap, required this.isSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +37,16 @@ class ItemListProduct extends StatelessWidget {
                   Positioned(
                       bottom: 10.h,
                       right: 8,
-                      child: CircleAvatar(
-                          radius: 20.r,
-                          backgroundColor: Colors.white,
-                          child: Icon(Icons.add,size:20 ,color: Colors.black,))
+                      child: GestureDetector(
+                        onTap: (){
+                          onTap(productModel);
+                        } ,
+                        child: CircleAvatar(
+                            radius: 20.r,
+                            backgroundColor: Colors.white,
+                            child: isSelected ? Icon(Icons.close,size:20 ,color: Colors.black,) : Icon(Icons.add,size:20 ,color: Colors.black,)
+                        ),
+                      )
                   )
                 ],
               ),

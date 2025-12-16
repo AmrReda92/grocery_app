@@ -4,9 +4,11 @@ import 'package:flutter_svg/svg.dart';
 import '../../../core/models/app_colors.dart';
 import '../../../core/models/app_images.dart';
 import '../../../core/models/app_text_style.dart';
+import '../data/model/category_model.dart';
 
 class TapeShoppingList extends StatelessWidget {
-  const TapeShoppingList({super.key});
+  final List<ProductModel> basket;
+  const TapeShoppingList({super.key, required this.basket});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class TapeShoppingList extends StatelessWidget {
             children: [
               Expanded(
                 child: ListView.builder(
-                  itemCount: 20,
+                  itemCount: basket.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
@@ -41,13 +43,12 @@ class TapeShoppingList extends StatelessWidget {
                           ),
                           CircleAvatar(
                             radius: 18.r,
-                            backgroundImage: AssetImage("assets/home/orange.png"),
+                            backgroundImage: AssetImage(basket[index].image),
                           ),
                         ],
                       ),
                     ) ;
                   },
-
                 ),
               ),
               SizedBox(width: 10.w,),
@@ -64,7 +65,7 @@ class TapeShoppingList extends StatelessWidget {
                     style: AppTextStyle.font16.copyWith(color: Colors.white,fontWeight: FontWeight.bold),),
                   SizedBox(width: 8.w,),
                   Badge(
-                    label: Text("1",style: TextStyle(fontSize: 14.sp),),
+                    label: Text(basket.length.toString(),style: TextStyle(fontSize: 14.sp),),
                     child: SvgPicture.asset(AppImages.shopping,width: 30.w,colorFilter: ColorFilter.mode(
                       Colors.white,
                       BlendMode.srcIn,  // or srcATop, multiply, overlay, etc.

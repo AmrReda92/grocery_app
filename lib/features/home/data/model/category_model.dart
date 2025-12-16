@@ -41,7 +41,8 @@ class ProductModel {
   final String rateNumbers;
   final String price;
 
-  ProductModel({ required this.name,required this.image,required this.rate, required this.rateNumbers, required this.price});
+
+  ProductModel({required this.name,required this.image,required this.rate, required this.rateNumbers, required this.price});
 
 }
 
