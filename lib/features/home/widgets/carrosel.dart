@@ -16,6 +16,7 @@ class Carousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.r),
           color: AppColors.backgroundContainer
@@ -25,7 +26,7 @@ class Carousel extends StatelessWidget {
         itemBuilder: (BuildContext context, int itemIndex, int pageViewIndex){
           return Image.asset(sliders[itemIndex]);
         }, options: CarouselOptions(
-        viewportFraction: 0.6,
+        viewportFraction: 0.7,
         height: 190.h,
         aspectRatio: 1,
         autoPlay: true,

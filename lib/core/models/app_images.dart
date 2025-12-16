@@ -17,6 +17,7 @@ class AppImages {
   static const String pepper = "assets/home/pepper.png";
   static const String orange = "assets/home/orange.png";
   static const String purex = "assets/home/purex.png";
+  static const String cartNum = "assets/icons/cart_number.svg";
 
 
 
