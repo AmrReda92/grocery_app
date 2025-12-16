@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:grocery_app/core/models/app_text_style.dart';
 import 'package:grocery_app/features/home/data/model/category_model.dart';
 
 import '../../../core/models/app_colors.dart';
@@ -23,7 +24,7 @@ class ItemGridHorizontal extends StatelessWidget {
           ),child: Image.asset(model.image,fit: BoxFit.contain, ),
         ),
         SizedBox(height: 10.h,),
-        Text(model.name)
+        Text(model.name,style: AppTextStyle.font16.copyWith(color: Color(0xff5A5555)),)
       ],
     ) ;
   }

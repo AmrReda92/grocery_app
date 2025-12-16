@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_app/core/models/app_images.dart';
 import 'package:grocery_app/core/models/app_text_style.dart';
+import 'package:grocery_app/features/home/widgets/list_horizontal_view.dart';
 
 import '../widgets/carrosel.dart';
 import '../widgets/grid_horizontal_view.dart';
@@ -35,8 +36,28 @@ class HomeScreen extends StatelessWidget {
            Carousel(),
            SizedBox(height: 17.h,),
            SizedBox(
-             height: 100.h,
+             height: 110.h,
                child: GridHorizontalView()),
+           SizedBox(height: 17.h,),
+           Padding(
+             padding:  EdgeInsets.symmetric(horizontal:25.w),
+             child: Row(
+               children: [
+                 Text("Fruits",style: AppTextStyle.font16,),
+                 Spacer(),
+                 Text("See All",style: AppTextStyle.font14,),
+               ],
+             ),
+           ),
+           SizedBox(height: 25.h,),
+           SizedBox(
+             height: 255.h,
+             child: ListHorizontalView() ,
+           )
+
+
+
+
 
 
 

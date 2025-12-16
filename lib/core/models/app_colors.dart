@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class AppColors {
-  static const Color backgroundContainer = Color(0xffF6F6F6);
+  static  Color backgroundContainer = Colors.grey.shade200;
 }
