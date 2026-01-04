@@ -17,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex=0;
   final List<ProductModel> basket =[];
 
   void addToCart ( ProductModel product){
@@ -58,7 +59,15 @@ class _HomeScreenState extends State<HomeScreen> {
              SizedBox(height: 17.h,),
              SizedBox(
                height: 110.h,
-                 child: GridHorizontalView()),
+                 child: GridHorizontalView(
+                     selectedIndex:selectedIndex,
+                   onTapItem: (index){
+                       setState(() {
+                         selectedIndex=index;
+                       });
+                   },
+                 )
+             ),
              SizedBox(height: 17.h,),
              Padding(
                padding:  EdgeInsets.symmetric(horizontal:25.w),

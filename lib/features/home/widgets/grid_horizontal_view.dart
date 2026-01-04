@@ -3,8 +3,10 @@ import 'package:grocery_app/features/home/data/model/category_model.dart';
 import 'package:grocery_app/features/home/widgets/item_grid_horizontal.dart';
 
 class GridHorizontalView extends StatelessWidget {
-  const GridHorizontalView({super.key,});
+  final int selectedIndex ;
+  final void Function(int)? onTapItem;
 
+  const GridHorizontalView({super.key, required this.selectedIndex, this.onTapItem,});
 
 
   @override
@@ -19,7 +21,11 @@ class GridHorizontalView extends StatelessWidget {
         ),
         itemBuilder: (context,index){
           final itemCategory = item[index];
-           return ItemGridHorizontal(model: itemCategory);
+           return ItemGridHorizontal(
+               model: itemCategory,
+               isSelected: selectedIndex==index,
+               onTap: ()=> onTapItem!(index),
+           );
         }
     );
   }
